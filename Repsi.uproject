@@ -1,13 +1,18 @@
 {
 	"FileVersion": 3,
 	"EngineAssociation": "5.0",
+	"CompilerVersion": "14.38.33130",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "RepsiCore",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"UMG"
+			]
 		}
 	]
 }

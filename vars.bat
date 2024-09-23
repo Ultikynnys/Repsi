@@ -7,7 +7,7 @@ set PROJECT=Repsi
 set PROJECT_DIR=%ROOTDIR%
 set UPROJECT_PATH=%PROJECT_DIR%\%PROJECT%.uproject
 
-set UE4_DIR=E:\Epic Games\UE_4.25
-set UE4EDITOR_EXE=%UE4_DIR%\Engine\Binaries\Win64\UE4Editor.exe
-set UE4EDITOR_CMD_EXE=%UE4_DIR%\Engine\Binaries\Win64\UE4Editor-Cmd.exe
+set UE4_DIR=F:\UE5_0\UE_5.0
+set UE4EDITOR_EXE=%UE4_DIR%\Engine\Binaries\Win64\UnrealEditor.exe
+set UE4EDITOR_CMD_EXE=%UE4_DIR%\Engine\Binaries\Win64\UE5Editor-Cmd.exe
 set BUILD_BAT=%UE4_DIR%\Engine\Build\BatchFiles\Build.bat

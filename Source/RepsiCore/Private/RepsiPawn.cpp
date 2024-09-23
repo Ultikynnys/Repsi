@@ -11,6 +11,9 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "RepsiPlayerController.h"
+#include "Blueprint/UserWidget.h"
+#include "Engine/Engine.h" 
 
 #include "Weapon.h"
 
@@ -31,6 +34,8 @@ ARepsiPawn::ARepsiPawn(const FObjectInitializer& ObjectInitializer)
 
 	// Establish a max distance for our aim traces
 	AimTraceDistance = 3000.0f;
+
+	
 
 	// Make the collision capsule small enough to just cover our mesh. Note that
 	// these component getter functions would only return null if we were to
@@ -191,6 +196,23 @@ void ARepsiPawn::Tick(float DeltaSeconds)
 		Weapon->UpdateAimLocation(WorldAimLocation, ViewAimLocation);
 	}
 }
+
+
+void ARepsiPawn::BeginPlay()
+{
+	Super::BeginPlay();
+
+	// Use NewController instead of Controller
+	if (!HasAuthority()) {
+		//CounterHud = CreateWidget<UShootCounter>(, WidgetClass);
+		CounterHud =  Cast<UShootCounter>(UUserWidget::CreateWidgetInstance(*GetWorld(), WidgetClass, FName("MyIdentifier")));
+		check(CounterHud);
+		CounterHud->AddToPlayerScreen();
+	}
+}
+
+
+
 
 void ARepsiPawn::AuthSetColor(const FLinearColor& InColor)
 {
